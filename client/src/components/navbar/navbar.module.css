@@ -1,0 +1,168 @@
+.navbar{
+    background-color: #023047;
+    color: white;
+    height: 8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+}
+.navbar_container{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+.navbar_logo_container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.navbar_logo{
+    font-size: 4rem;
+}
+.navbar_right{
+    display: flex;
+}
+.login_btn_container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.login_btn_container:last-child{
+    margin-left: 10px;
+}
+.login_btn{
+    background-color: #0077b6;
+    height: 4rem;
+    width: 10rem;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+    transition: all 400ms linear;
+    font-size: 1.5rem;
+}
+.register_btn{
+    height: 4rem;
+    width: 10rem;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+    transition: all 400ms linear;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: 1px solid #0077b6;
+}
+.login_btn:hover,
+.register_btn:hover{
+    transform: scale(1.05,1.05);
+}
+
+.md_nav_open{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.md_nav_open > button{
+    background-color: transparent;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+}
+.md_nav_close{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.md_nav_close > button{
+    background-color: transparent;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+}
+.md_nav{
+    display: none;
+}
+@media all and (max-width: 768px) {
+    .navbar_right{
+        display: none;
+    }
+    .md_nav{
+        display: block;
+    }
+    .md_nav_item{
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.6);
+        height: 100%;
+        transition: all 300ms linear;
+    }
+    .md_nav_item_show{
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,0.6);
+        height: 100%;
+        transition: all 300ms linear;
+    }
+    .md_nav_item_child{
+        width: 50%;
+        padding: 2rem;
+        background-color: #023047;
+        height: 100%;
+        min-width: 15rem;
+    }
+    .md_top_nav{
+        display: flex;
+        justify-content: space-between;
+    }
+    .md_top_nav > .md_title{
+        font-size: 3rem;
+    }
+    .md_login_btn_container{
+        margin-top: 2rem;
+    }
+    .md_login_btn{
+        background-color: #0077b6;
+        height: 4rem;
+        width: 10rem;
+        color: white;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+        transition: all 400ms linear;
+        font-size: 1.5rem;
+    }
+    .md_register_btn{
+        height: 4rem;
+        width: 10rem;
+        color: white;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+        transition: all 400ms linear;
+        font-size: 1.5rem;
+        background-color: transparent;
+        border: 1px solid #0077b6;
+    }
+}
+@media all and (max-width: 567px) {
+    .md_nav_item{
+        width: 100%;
+    }
+    .md_nav_item_child{
+        width: 100%;
+    }
+}
+.logo{
+    color: white;
+}

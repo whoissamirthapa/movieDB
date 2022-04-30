@@ -1,0 +1,69 @@
+.register_container{
+    margin-top: 8rem;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register_container_child{
+    background-color: #023047;
+    color: white;
+    width: 35%;
+    min-width: 35rem;
+    border-radius: 5px;
+}
+.register_container_child > header{
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+.register_container_child > form{
+    width: 80%;
+    margin: 4rem auto;
+}
+.indv_form{
+    margin-bottom: 1rem;
+}
+.indv_label {
+    font-size: 1.8rem;
+}
+.indv_input > input{
+    width: 100%;
+    min-width: 25rem;
+    outline: none;
+    height: 4rem;
+    padding-left: 1rem;
+    border: 1px solid #0077b6;
+    border-radius: 5px;
+}
+.indv_form > button{
+    height: 3.8rem;
+    width: 10rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #0077b6;
+    color: white;
+    transition: all 200ms linear;
+}
+.indv_form > button:hover{
+    background-color: #01527d;
+}
+@media all and (max-width: 480px) {
+    .register_container_child{
+        width: 100%;
+        min-width: 100%;
+        border-radius: 5px;
+    }
+    .register_container_child > form{
+        width: 90%;
+    }
+    .indv_input > input{
+        min-width: 100%;
+    }
+}
+.valid_input{
+    font-size: 10px;
+    display: block;
+}
