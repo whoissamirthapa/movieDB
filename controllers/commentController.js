@@ -27,6 +27,7 @@ const addComment = async(req, res)=>{
         res.status(400).json({ error: "Comment can not be added"});
     }catch(error){
         console.log(error);
+        res.status(421).json({ error: error})
     }
 }
 
@@ -40,7 +41,7 @@ const getComment = async(req, res)=>{
     
     if(movieId){
         const data = await Comment.find({ movieId: movieId});
-        if(data) return res.status(200).json({ message: "Comment sucess", data });
+        return res.status(200).json({ message: "Comment sucess", data });
     }
     res.status(400).json({ error: "Movie not found"});
 }
@@ -55,8 +56,20 @@ const deleteComment = async (req, res)=>{
         return res.status(401).json({ error: "User must logged in"});
     }
 
-    const data = await Comment.findOneAndRemove({ _id: commentId, movieId: movieId,  userId: userId });
-    console.log(data);
+    const data = await Comment.findOneAndRemove(
+        { $and: [
+            { 
+                _id: commentId
+            }, 
+            {
+                movieId: movieId
+            },
+            {
+                userId: userId 
+            }
+        ]}
+    );
+
     if(data){
         return res.status(200).json({ message: "Successfully deleted", data});
     }

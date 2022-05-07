@@ -8,7 +8,15 @@ const addFavorite = async(req, res)=>{
             return res.status(421).json({ error: "must be provided all things"});
         }
 
-        const existMovie = await Favorite.findOne({ movieId });
+        const existMovie = await Favorite.findOne(
+            { $and: [
+                { 
+                    userId: userToken.userId
+                },
+                {
+                    movieId: movieId
+                } ]
+            });
         if(existMovie){
             return res.status(401).json({ error: "Movie already exist in favorite"});
         }

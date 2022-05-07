@@ -27,7 +27,6 @@ const Login = () => {
         }
 
         dispatch(loginUser({ email, password}));
-        console.log({ email, password });
     }
 
     useEffect(()=>{

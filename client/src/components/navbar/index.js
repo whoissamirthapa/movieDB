@@ -30,6 +30,7 @@ const Navbar = () => {
     const handleLogOut=()=>{
         const info = { token: null, tokenL: null}
         localStorage.removeItem("userToken");
+        localStorage.removeItem("userInfo");
         dispatch(authActions.removeToken());
         setUserL(()=>{
             return {...info}
@@ -88,16 +89,24 @@ const Navbar = () => {
                                 </div>
                             </section>
                             <div className={classes.md_login_btn_container}>
-                                <Link to={'/login'}>
-
-                                <button className={classes.md_login_btn}>Login</button>
-                                </Link>
+                                { (!userL.tokenL) && <Link to={'/login'}>
+                            
+                                <button className={classes.login_btn}>Login</button>
+                                </Link> }
+                                { (userL.token || userL.tokenL) && <Link to={'/favorite'}>
+                                
+                                <button className={classes.login_btn}>Favorite</button>
+                                </Link> }
                             </div>
                             <div className={classes.md_login_btn_container}>
-                                <Link to={'/register'}>
+                                { (!userL.tokenL) && <Link to={'/register'}>
                                 
-                                <button className={classes.md_register_btn}>Register</button>
-                                </Link>
+                                <button className={classes.register_btn}>Register</button>
+                                </Link> }
+                                { (userL.token || userL.tokenL) && <Link to={'/'}>
+                                
+                                <button className={classes.register_btn} onClick={handleLogOut}>Log out</button>
+                                </Link> }
                             </div>
                         </section>
                     </section> }

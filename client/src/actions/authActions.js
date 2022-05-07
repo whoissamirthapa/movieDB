@@ -19,7 +19,6 @@ export const registerUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
     "loginaction",
     async(data)=>{
-        console.log(data);
         const res = await fetch('/api/users/login',{
             method: "post",
             headers: {

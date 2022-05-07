@@ -42,6 +42,8 @@ const Comment = ({id}) => {
     
     const [comment, setComment] = useState("");
     const [hereToke, setHereToken] = useState("");
+    const [deleteCheckBtn, setDeleteCheckBtn] = useState({});
+
     useEffect(()=>{
         if(tokenL){
             setHereToken(tokenL);
@@ -71,6 +73,15 @@ const Comment = ({id}) => {
     const handleDelete = (commentId)=>{
         dispatch(deleteComment({ movieId: id, commentId}))
     }
+
+    useEffect(()=>{
+        
+        const userInfo = localStorage.getItem("userInfo")
+        const pUserInfo = JSON.parse(userInfo);
+        setDeleteCheckBtn(()=>{
+            return { ... pUserInfo}
+        })
+    },[])
     return (
         <section className={classes.comment_container}>
             <section className={classes.comment_container_child}>
@@ -104,9 +115,10 @@ const Comment = ({id}) => {
                                             <div>
                                             🧑‍🦰 {comment.userName && comment.userName}
                                             </div>
+                                            { (comment.userId === deleteCheckBtn._id) &&
                                             <div>
                                             <FaTrashAlt onClick={()=>handleDelete(comment._id)} className={classes.delete_icon} />
-                                            </div>
+                                            </div> }
                                         </div>
                                         <div className={classes.comment_}>{comment.content && comment.content}</div>
                                     </section>

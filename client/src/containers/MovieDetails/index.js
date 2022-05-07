@@ -20,7 +20,7 @@ const MovieDetail = () => {
     const tokenL = localStorage.getItem("userToken");
     const params = useParams();
     const id = params.id;
-    const [castInfo, setCastInfo] = useState(true);
+    const [castInfo, setCastInfo] = useState(false);
     const [cast, setCast] = useState([]);
     const [data, setData] = useState({});
     const [backdropImg, setBackdropImg] = useState(img)
